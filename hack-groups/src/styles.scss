@@ -59,12 +59,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   }
 }
 
-button {
-  background-color: #001529 !important;
+button, .button {
   border: none !important;
   margin-bottom: 20px;
+  padding: 0;
 }
-button:hover, button:focus {
+.l-blue:hover, .l-blue:focus, .d-blue:hover, .d-blue:active {
   background-color: #00517c !important;
 }
 
@@ -116,4 +116,24 @@ button:hover, button:focus {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #001529;
+}
+
+.red {
+  background-color: #6d1a36 !important;
+}
+
+.red:hover, .red:active {
+  background-color: #6d1a36 !important;
+}
+
+.d-blue {
+  background-color: #001529 !important;
+}
+
+.l-blue {
+  background-color: #00517c !important;
+}
+
+.active {
+  color: white !important;
 }
