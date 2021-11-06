@@ -7,6 +7,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzButtonModule } from 'ng-zorro-antd/button';
 
 @NgModule({
   declarations: [AppLoaderComponent, AppHeaderComponent, AppFooterComponent],
@@ -16,7 +17,8 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
     NzFormModule,
     FormsModule,
     ReactiveFormsModule,
-    NzLayoutModule
+    NzLayoutModule,
+    NzButtonModule
   ],
   exports: [
     AppLoaderComponent,
@@ -25,7 +27,8 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
     NzFormModule,
     FormsModule,
     ReactiveFormsModule,
-    NzLayoutModule
+    NzLayoutModule,
+    NzButtonModule
   ]
 })
 export class SharedModule { }

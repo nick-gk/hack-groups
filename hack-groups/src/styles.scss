@@ -16,6 +16,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   justify-content: center;
 }
 
+.justify-between {
+  justify-content: space-between !important;
+}
+
 .align-center {
   align-items: center;
 }
@@ -37,10 +41,21 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   margin-top: 50px !important;
 }
 
-.form {
+.auth-form {
   margin-top: 100px;
   width: 25%;
   min-width: 350px;
+  button {
+    background-color: #001529;
+    border: none;
+    margin-bottom: 20px;
+  }
+  button:hover, button:focus {
+    background-color: #00517c;
+  }
+  a {
+    color: #00517c;
+  }
 }
 
 .ant-form-item {
