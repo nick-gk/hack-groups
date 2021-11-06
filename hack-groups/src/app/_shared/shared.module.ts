@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { RouterModule } from '@angular/router';
+import { NzGridModule } from 'ng-zorro-antd/grid';
 
 @NgModule({
   declarations: [AppLoaderComponent, AppHeaderComponent, AppFooterComponent],
@@ -20,7 +21,8 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     ReactiveFormsModule,
     NzLayoutModule,
-    NzButtonModule
+    NzButtonModule,
+    NzGridModule
   ],
   exports: [
     AppLoaderComponent,
@@ -30,7 +32,8 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     ReactiveFormsModule,
     NzLayoutModule,
-    NzButtonModule
+    NzButtonModule,
+    NzGridModule
   ]
 })
 export class SharedModule { }
