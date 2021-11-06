@@ -2,9 +2,9 @@
   <div class="header">
     <div class="logo"></div>
     <ul nz-menu nzTheme="dark" nzMode="horizontal">
-      <li nz-menu-item>Home</li>
-      <li nz-menu-item>localhost Lab</li>
-      <li nz-menu-item>Profile</li>
+      <li nz-menu-item><a routerLinkActive="active-link" [routerLink]="'/dashboard'">Dashboard</a></li>
+      <li nz-menu-item><a routerLinkActive="active-link" [routerLink]="'/add-new-post'">Add new post</a></li>
+      <li nz-menu-item><a routerLinkActive="active-link" [routerLink]="'/posts'">Posts</a></li>
     </ul>
   </div>
 </nz-header>

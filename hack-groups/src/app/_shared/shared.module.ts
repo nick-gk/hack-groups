@@ -7,6 +7,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [AppLoaderComponent, AppHeaderComponent, AppFooterComponent],
@@ -15,6 +16,7 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
     MatProgressBarModule,
     NzFormModule,
     FormsModule,
+    RouterModule,
     ReactiveFormsModule,
     NzLayoutModule
   ],

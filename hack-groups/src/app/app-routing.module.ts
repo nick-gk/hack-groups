@@ -4,9 +4,8 @@ import { Urls } from './_core/constants/Urls';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: Urls.AUTH, pathMatch: 'full'},
   {
-    path: Urls.DASHBOARD,
+    path: '',
     loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
   },
   {
