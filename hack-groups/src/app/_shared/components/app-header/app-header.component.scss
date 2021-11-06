@@ -1,0 +1,20 @@
+.header {
+  display: flex;
+  justify-content: flex-end;
+  ul {
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    width: 30%;
+    li {
+      list-style-type: none;
+      cursor: pointer;
+      padding: 0 20px;
+    }
+  }
+}
+
+.header li:hover {
+  background-color: #00517c;
+  transition: ease-in .5s;
+}

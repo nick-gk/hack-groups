@@ -3,6 +3,7 @@ export enum Urls {
 
    AUTH = 'auth',
    LOGIN = 'login',
+   REGISTER = 'register',
    DASHBOARD = 'dashboard',
 
    APP = 'app',
