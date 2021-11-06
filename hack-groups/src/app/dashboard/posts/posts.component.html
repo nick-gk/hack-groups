@@ -3,10 +3,11 @@
     <div class="t-row t-head" nz-row>
       <p nz-col [nzSpan]="2">Index</p>
       <p nz-col [nzSpan]="6">Date</p>
-      <p nz-col [nzSpan]="10">Text</p>
+      <p nz-col [nzSpan]="9">Text</p>
       <p nz-col [nzSpan]="2">Likes</p>
       <p nz-col [nzSpan]="2">Comments</p>
       <p nz-col [nzSpan]="2">Shares</p>
+      <p nz-col [nzSpan]="1"></p>
     </div>
     <div class="rows">
       <div
@@ -14,11 +15,14 @@
         nz-row class="pointer t-row" [ngClass]="{'selected': selectedIndex === i, 't-body': selectedIndex !== i}"
         (click)="selectPost(i)">
         <p nz-col [nzSpan]="2">{{ i + 1 }}</p>
-        <p nz-col [nzSpan]="6">{{ post.date }}</p>
-        <p class="content" nz-col [nzSpan]="10">{{ post.content | truncate: 45 }}</p>
+        <p nz-col [nzSpan]="6">{{ formatDateTime(post.date) }}</p>
+        <p class="content" nz-col [nzSpan]="9">{{ post.content | truncate: 45 }}</p>
         <p nz-col [nzSpan]="2">{{ post.likes }}</p>
         <p nz-col [nzSpan]="2">{{ post.comments }}</p>
         <p nz-col [nzSpan]="2">{{ post.shares }}</p>
+        <p nz-col [nzSpan]="1">
+          <i *ngIf="post.mediaFile?.length" nz-icon nzType="camera" nzTheme="fill"></i>
+        </p>
       </div>
     </div>
   </div>

@@ -2,7 +2,7 @@
   width: 50%;
 }
 
-.icons{
+.icons {
   width: 50%;
   p {
     margin: 0 3px;
@@ -12,37 +12,40 @@
 
 .post-details {
   padding: 0 100px;
+  height: 85vh;
 }
 
 .card {
-  padding-top: 25px;
+  padding-top: 20px;
   box-shadow: 6px 5px 12px -6px #000000;
-  .content, .image {
-    padding: 0 25px;
+  border-radius: 0;
+  .content,
+  .image {
+    padding: 0 20px;
   }
 
   .image {
     max-width: 600px;
+    max-height: 300px;
+    margin-bottom: 20px;
   }
 
   i {
     color: #00517c;
   }
 
-  .badge{
+  .badge {
     width: 150px;
     height: 35px;
-    background-color: #6d1a36;
     color: white;
     font-size: 14px;
     font-weight: normal;
-    margin-right: 25px;
-    margin-bottom: 20px;
+    margin: 0 20px 20px;
   }
 }
 
 .card-bottom {
-  border: 1px solid #e9eaea;
+  border-top: 1px solid #e9eaea;
   justify-content: space-around;
   padding: 10px 50px;
 }
@@ -51,12 +54,16 @@
   height: 70vh;
 }
 
-
 .menu {
   padding: 0 150px;
   margin-top: 25px;
 
-  button {
-    width: 115px;
-  }
+}
+
+.details-title {
+  font-size: 30px;
+}
+
+button, .button {
+  width: 120px;
 }
