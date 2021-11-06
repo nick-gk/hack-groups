@@ -12,6 +12,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { ChartsModule } from 'ng2-charts';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { ChartsModule } from 'ng2-charts';
     NzFormModule,
     ChartsModule,
     SharedModule,
+    NzModalModule,
     NzTableModule
   ]
 })

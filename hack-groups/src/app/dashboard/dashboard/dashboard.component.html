@@ -5,44 +5,49 @@
         <h2 nz-typography>{{ page.name }}</h2>
         <p class="ml-4">Resume for the last week</p>
       </div>
-      <div nz-row [nzGutter]="6">
-        <div nz-col [nzSpan]="6">
+      <div nz-row [nzGutter]="8">
+        <div nz-col [nzSpan]="8">
           <nz-card nzTitle="Interactions">
-            <p><b>{{ page.interactions }} Interactions</b></p>
+            <b>{{ page.interactions }} Interactions</b>
             <p># of people that interacted with the posts</p>
           </nz-card>
         </div>
-        <div nz-col [nzSpan]="6">
+        <div nz-col [nzSpan]="8">
           <nz-card nzTitle="Page Actions">
-            <p>{{ page.pageActions }} Actions</p>
+            <b>{{ page.pageActions }} Actions</b>
+            <p># of actions resulting from ads</p>
           </nz-card>
         </div>
-        <div nz-col [nzSpan]="6">
+        <div nz-col [nzSpan]="8">
           <nz-card nzTitle="New Likes">
-            <p>{{ page.newLikes }} New Likes</p>
+            <b>{{ page.newLikes }} New Likes</b>
+            <p># of new page likes for the current week</p>
           </nz-card>
         </div>
-        <div nz-col [nzSpan]="6">
+      </div>
+
+      <div class="mt-4" nz-row [nzGutter]="8">
+        <div nz-col [nzSpan]="8">
           <nz-card nzTitle="New followers">
-            <p>{{ page.newFollowers }} New Followers</p>
+            <b>{{ page.newFollowers }} New Followers</b>
+            <p># of new page followers for the current week</p>
           </nz-card>
         </div>
-      </div>
-
-      <div class="mt-4" nz-row [nzGutter]="6">
-        <div nz-col [nzSpan]="6">
+        <div nz-col [nzSpan]="8">
           <nz-card nzTitle="New Views">
-            <p>{{ page.pageViews }} Views</p>
+            <b>{{ page.pageViews }} Views</b>
+            <p># of new unique page view</p>
           </nz-card>
         </div>
-        <div nz-col [nzSpan]="6">
+        <div nz-col [nzSpan]="8">
           <nz-card nzTitle="New Impact">
-            <p>{{ page.impact }} Impact</p>
+            <b>{{ page.impact }} Impact</b>
+            <p># of people reached</p>
           </nz-card>
         </div>
       </div>
 
-      <div class="mt-5" nz-row [nzGutter]="24">
+      <div class="my-5" nz-row [nzGutter]="24">
         <div nz-col [nzSpan]="24" class="text-center">
           <h3 nz-typography>Posts Interactions (last 10 weeks)</h3>
           <canvas baseChart width="700" height="175"

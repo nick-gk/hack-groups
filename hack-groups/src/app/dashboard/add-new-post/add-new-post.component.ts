@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PostApiService } from 'src/app/_core/api/post-api.service';
 import { MediaType } from 'src/app/_core/constants/MediaType';
 import { CustomValidators } from 'src/app/_core/helpers/CustomValidators';
+import { PostDetails } from 'src/app/_core/models/Post';
 
 @Component({
   selector: 'app-add-new-post',
@@ -12,7 +13,9 @@ import { CustomValidators } from 'src/app/_core/helpers/CustomValidators';
 })
 export class AddNewPostComponent implements OnInit {
   postForm: FormGroup;
+  postDetails: PostDetails;
   id: string;
+  previewVisible = false;
 
   // prettier-ignore
   constructor(
@@ -31,6 +34,7 @@ export class AddNewPostComponent implements OnInit {
 
   generateForm(): void {
     this.postForm = this.fb.group({
+      id: [null],
       content: [null, [Validators.required]],
       mediaFile: [null, [CustomValidators.website]],
       date: [Date.now()],
@@ -43,7 +47,21 @@ export class AddNewPostComponent implements OnInit {
   }
 
   getPostData(): void {
+    this.apiService.getPost(this.id).subscribe(res => this.prefill(res));
+  }
 
+  prefill(post: PostDetails): void {
+    this.postForm.patchValue({
+      id: post.id,
+      content: post.content,
+      mediaFile: post.mediaFile,
+      date: post.date,
+      mediaType: post.mediaType,
+      shares: post.shares,
+      likes: post.likes,
+      reactions: post.reactions,
+      comments: post.comments
+    });
   }
 
   analyze(): void {
@@ -52,6 +70,10 @@ export class AddNewPostComponent implements OnInit {
       photo: this.postForm.getRawValue().mediaFile
     };
     this.apiService.postAnalyzePost(payload).subscribe((res) => console.log(res));
+  }
+
+  preview(): void {
+    this.previewVisible = !this.previewVisible;
   }
 
   post(): void {

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { PostDetails } from 'src/app/_core/models/Post';
 
 @Component({
@@ -8,15 +9,15 @@ import { PostDetails } from 'src/app/_core/models/Post';
 })
 export class PostComponent implements OnInit {
   @Input() post: PostDetails;
-
+  @Input() preview = false;
   @Output() triggerRequest: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(
-
+    private router: Router
   ) { }
 
   ngOnInit(): void {
-
+    console.log(this.post);
   }
 
   move(next: boolean = false) {
@@ -24,7 +25,7 @@ export class PostComponent implements OnInit {
   }
 
   manage(){
-
+    this.router.navigate(['/post', this.post.id]);
   }
 
 }

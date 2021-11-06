@@ -1,9 +1,9 @@
 <div class="w-100 post-details d-flex justify-center">
   <div *ngIf="post?.id; else noPost" class="d-flex justify-center flex-column align-center w-100">
-    <h3 class="title">Post details</h3>
+    <h3 class="title" *ngIf="!preview">Post details</h3>
     <div class="card-container justify-center d-flex align-center flex-column">
       <div class="card d-flex justify-center flex-column align-center">
-        <div class="badge-container d-flex justify-end w-100">
+        <div class="badge-container d-flex justify-end w-100" *ngIf="!preview">
           <div class="badge d-flex align-center justify-center">Reactions: {{post.reactions}}</div>
         </div>
         <p class="content">{{post.content}}</p>
@@ -24,7 +24,7 @@
         </div>
       </div>
 
-      <div class="menu d-flex justify-around w-100">
+      <div class="menu d-flex justify-around w-100" *ngIf="!preview">
         <button nz-button nzType="primary" (click)="move()">
           Previous post
         </button>
