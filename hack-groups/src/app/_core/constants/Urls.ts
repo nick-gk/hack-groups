@@ -7,7 +7,11 @@ export enum Urls {
    DASHBOARD = 'dashboard',
 
    APP = 'app',
-   HOMEPAGE = 'homepage'
+   HOMEPAGE = 'homepage',
+
+   POST = 'post',
+   POSTS = 'posts',
+   ADD_NEW_PSOT = 'add-new-post'
 }
 
 export default Urls;

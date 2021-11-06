@@ -8,6 +8,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [AppLoaderComponent, AppHeaderComponent, AppFooterComponent],
@@ -16,6 +17,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
     MatProgressBarModule,
     NzFormModule,
     FormsModule,
+    RouterModule,
     ReactiveFormsModule,
     NzLayoutModule,
     NzButtonModule
