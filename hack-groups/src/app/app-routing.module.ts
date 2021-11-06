@@ -14,9 +14,9 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
   {
-    path: Urls.DASHBOARD,
+    path: '**',
     loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
-  },
+  }
 ];
 
 @NgModule({

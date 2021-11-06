@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import StorageHelper from '../helpers/Storage.helper';
+import StorageHelper from '../helpers/StorageHelper';
 import { User } from '../models/User';
 import { BehaviorSubject } from 'rxjs';
 import Urls from '../constants/Urls';

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpErrorResponse } from '@angular/common/http';
 import { of, throwError } from 'rxjs';
-import StorageHelper from '../helpers/Storage.helper';
+import StorageHelper from '../helpers/StorageHelper';
 import { LoaderService } from '../services/loader.service';
 import { catchError, finalize } from 'rxjs/operators';
 import { UserService } from '../services/user.service';

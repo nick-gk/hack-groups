@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import StorageHelper from './_core/helpers/StorageHelper';
 
 @Component({
   selector: 'app-root',
