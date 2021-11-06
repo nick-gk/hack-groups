@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ApiService } from '../api/api.service';
 
 @Injectable({
@@ -14,6 +15,10 @@ export class PostApiService {
 
   getTablePosts() {
     return this.apiService.get(`${this.resourceUrl}/table-posts`);
+  }
+
+  postAnalyzePost(body: any): Observable<any> {
+    return this.apiService.get(`${this.resourceUrl}/data-analysis/analyze`, body);
   }
 
 }

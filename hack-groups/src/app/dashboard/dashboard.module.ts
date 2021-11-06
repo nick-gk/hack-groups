@@ -6,6 +6,9 @@ import { SharedModule } from '../_shared/shared.module';
 import { PostsComponent } from './posts/posts.component';
 import { AddNewPostComponent } from './add-new-post/add-new-post.component';
 import { PostComponent } from './post/post.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzTableModule } from 'ng-zorro-antd/table';
 
 
@@ -14,6 +17,9 @@ import { NzTableModule } from 'ng-zorro-antd/table';
   imports: [
     DashboardRoutingModule,
     CommonModule,
+    ReactiveFormsModule,
+    NzInputModule,
+    NzFormModule,
     SharedModule,
     NzTableModule
   ]
