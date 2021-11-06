@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
-import { HomeService } from 'src/app/_core/api/post-api.service';
+import { PostApiService } from 'src/app/_core/api/post-api.service';
 import { PageEntity } from 'src/app/_core/models/Page';
 
 @Component({
@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
 
   // prettier-ignore
   constructor(
-    private apiService: HomeService
+    private apiService: PostApiService
   ) { }
 
   ngOnInit() {
