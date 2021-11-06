@@ -6,6 +6,7 @@ import { SharedModule } from '../_shared/shared.module';
 import { PostsComponent } from './posts/posts.component';
 import { AddNewPostComponent } from './add-new-post/add-new-post.component';
 import { PostComponent } from './post/post.component';
+import { NzTableModule } from 'ng-zorro-antd/table';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { PostComponent } from './post/post.component';
   imports: [
     DashboardRoutingModule,
     CommonModule,
-    SharedModule
+    SharedModule,
+    NzTableModule
   ]
 })
 export class DashboardModule { }

@@ -1,0 +1,21 @@
+:host {
+  width: 60%;
+}
+
+.t-row {
+  height: 40px;
+  align-items: center !important;
+  p {
+    text-align: center;
+    margin: 0;
+  }
+}
+
+.t-head {
+  background-color: #f2f4f5;
+  font-weight: bold;
+}
+
+.t-body:hover {
+  background-color: #e6b0c2;
+}
