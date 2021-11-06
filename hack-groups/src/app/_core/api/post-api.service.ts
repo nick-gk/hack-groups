@@ -6,19 +6,23 @@ import { ApiService } from '../api/api.service';
   providedIn: 'root',
 })
 export class PostApiService {
-  private readonly resourceUrl: string = '/api';
+  private readonly resourceUrl: string = 'api';
 
   constructor(
     private apiService: ApiService
   ) {
   }
 
-  getTablePosts() {
-    return this.apiService.get(`${this.resourceUrl}/table-posts`);
+  getTablePosts(): Observable<any> {
+    return this.apiService.get(`${this.resourceUrl}/facebook/posts`);
   }
 
   postAnalyzePost(body: any): Observable<any> {
     return this.apiService.get(`${this.resourceUrl}/data-analysis/analyze`, body);
+  }
+
+  getPost(uuid): Observable<any> {
+    return this.apiService.get(`${this.resourceUrl}/facebook/posts/by-id/${uuid}`);
   }
 
 }

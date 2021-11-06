@@ -10,9 +10,12 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { RouterModule } from '@angular/router';
 import { NzGridModule } from 'ng-zorro-antd/grid';
+import { TruncateCharactersPipe } from './pipes/truncate.pipe';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+
 
 @NgModule({
-  declarations: [AppLoaderComponent, AppHeaderComponent, AppFooterComponent],
+  declarations: [AppLoaderComponent, AppHeaderComponent, AppFooterComponent, TruncateCharactersPipe],
   imports: [
     CommonModule,
     MatProgressBarModule,
@@ -22,7 +25,8 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
     ReactiveFormsModule,
     NzLayoutModule,
     NzButtonModule,
-    NzGridModule
+    NzGridModule,
+    NzIconModule
   ],
   exports: [
     AppLoaderComponent,
@@ -33,7 +37,9 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
     ReactiveFormsModule,
     NzLayoutModule,
     NzButtonModule,
-    NzGridModule
+    NzGridModule,
+    TruncateCharactersPipe,
+    NzIconModule
   ]
 })
 export class SharedModule { }

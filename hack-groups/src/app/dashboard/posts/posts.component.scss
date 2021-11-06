@@ -1,13 +1,13 @@
-:host {
-  width: 60%;
-}
-
 .t-row {
   height: 40px;
   align-items: center !important;
+  border-bottom: 1px solid #f2f4f5;
   p {
     text-align: center;
     margin: 0;
+  }
+  .content {
+    text-align: left;
   }
 }
 
@@ -17,5 +17,22 @@
 }
 
 .t-body:hover {
-  background-color: #e6b0c2;
+  background-color: #eccfd9;
+}
+
+.table {
+  width: 50%;
+}
+
+.rows {
+  overflow: scroll;
+  height: 85vh;
+  ::-webkit-scrollbar-track {
+    margin-top: 20px;
+  }
+}
+
+.selected {
+  background-color: #6d1a36;
+  color: white;
 }

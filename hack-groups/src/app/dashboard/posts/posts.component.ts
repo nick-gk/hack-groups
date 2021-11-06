@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { PostApiService } from 'src/app/_core/api/post-api.service';
-import { TablePost } from 'src/app/_core/models/User';
+import { PostDetails, TablePost } from 'src/app/_core/models/Post';
 
 @Component({
   selector: 'app-posts',
@@ -10,6 +10,8 @@ import { TablePost } from 'src/app/_core/models/User';
 })
 export class PostsComponent implements OnInit {
   listofPosts: TablePost[];
+  selectedIndex: number = 0;
+  postDetails: PostDetails;
 
   constructor(
     private postApiService: PostApiService,
@@ -18,25 +20,32 @@ export class PostsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPosts();
+
   }
 
   getPosts(){
-    // this.postApiService.getTablePosts().subscribe((res) => {
-    //   this.listofPosts = [...res.posts];
-    // },
-    // () => {
-    //   this.toasterService.error('Could not retrieve the older posts.');
-    // });
-    this.listofPosts = [
-      {
-        id: 1,
-        date: new Date(),
-        preview: 'Thesdfsdf sdfds ...',
-        likes: 34,
-        comments: 2,
-        shares: 1
-      }
-    ]
+    this.postApiService.getTablePosts().subscribe((res: TablePost[]) => {
+      this.listofPosts = [...res];
+      this.selectPost(this.selectedIndex);
+    },
+    () => {
+      this.toasterService.error('Could not retrieve the older posts.');
+    });
+  }
+
+  selectPost(index){
+    this.selectedIndex = index;
+    this.postApiService.getPost(this.listofPosts[index].id).subscribe((res) => {
+      this.postDetails = res;
+    },
+    () => {
+      this.toasterService.error('Could not retrieve the post.');
+    })
+  }
+
+  moveTo(next: boolean) {
+    const index = next ? this.selectedIndex + 1 : this.selectedIndex - 1;
+    this.selectPost(index);
   }
 
 }
