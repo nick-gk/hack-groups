@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ApiService } from 'src/app/_core/api/api.service';
+import { HomeService } from 'src/app/_core/api/post-api.service';
 import { MediaType } from 'src/app/_core/constants/MediaType';
 import { CustomValidators } from 'src/app/_core/helpers/CustomValidators';
 
@@ -13,7 +15,8 @@ export class AddNewPostComponent implements OnInit {
 
   // prettier-ignore
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private apiService: HomeService
   ) { }
 
   ngOnInit(): void {
@@ -43,6 +46,8 @@ export class AddNewPostComponent implements OnInit {
       content: this.postForm.getRawValue().content,
       photo: this.postForm.getRawValue().mediaFile
     };
+
+    this.apiService.postAnalyzePost(payload).subscribe((res) => console.log(res));
   }
 
 }

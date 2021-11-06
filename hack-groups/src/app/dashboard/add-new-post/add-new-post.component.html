@@ -3,13 +3,13 @@
    <form nz-form [formGroup]="postForm" (ngSubmit)="post()" class="mt-5 align-self-center w-50 pr-5">
       <nz-form-item>
          <nz-form-label [nzSpan]="6" nzFor="content">Content</nz-form-label>
-         <nz-form-control [nzSpan]="14">
+         <nz-form-control [nzSpan]="14" nzErrorTip="Content is required">
             <textarea formControlName="content" rows="3" nz-input name="content" id="content" placeholder="Write something" nzAutosize></textarea>
          </nz-form-control>
       </nz-form-item>
       <nz-form-item>
          <nz-form-label [nzSpan]="6" nzFor="mediaFile">Media File</nz-form-label>
-         <nz-form-control [nzSpan]="14">
+         <nz-form-control [nzSpan]="14" nzErrorTip="Url is invalid">
             <input formControlName="mediaFile" nz-input name="mediaFile" type="text" id="mediaFile" placeholder="Url to Media">
          </nz-form-control>
       </nz-form-item>

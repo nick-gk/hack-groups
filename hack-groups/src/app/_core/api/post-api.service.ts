@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ApiService } from '../api/api.service';
 
 @Injectable({
@@ -12,8 +13,8 @@ export class HomeService {
   ) {
   }
 
-  getWelcomePopup() {
-    return this.apiService.get(`${this.resourceUrl}/get-welcome-popup`);
+  postAnalyzePost(body: any): Observable<any> {
+    return this.apiService.get(`${this.resourceUrl}/data-analysis/analyze`, body);
   }
 
 }
