@@ -20,6 +20,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   justify-content: space-between !important;
 }
 
+.justify-end {
+  justify-content: flex-end !important;
+}
+
+.justify-around {
+  justify-content: space-around !important;
+}
+
 .align-center {
   align-items: center;
 }
@@ -45,17 +53,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   margin-top: 100px;
   width: 25%;
   min-width: 350px;
-  button {
-    background-color: #001529;
-    border: none;
-    margin-bottom: 20px;
-  }
-  button:hover, button:focus {
-    background-color: #00517c;
-  }
+
   a {
     color: #00517c;
   }
+}
+
+button {
+  background-color: #001529 !important;
+  border: none !important;
+  margin-bottom: 20px;
+}
+button:hover, button:focus {
+  background-color: #00517c !important;
 }
 
 .ant-form-item {
@@ -94,3 +104,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   cursor: pointer;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #001529;
+}

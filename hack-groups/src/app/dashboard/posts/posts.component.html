@@ -1,18 +1,26 @@
-<div>
-  <div class="t-row t-head" nz-row>
-    <p nz-col [nzSpan]="2">Index</p>
-    <p nz-col [nzSpan]="6">Date</p>
-    <p nz-col [nzSpan]="10">Text</p>
-    <p nz-col [nzSpan]="2">Likes</p>
-    <p nz-col [nzSpan]="2">Comments</p>
-    <p nz-col [nzSpan]="2">Shares</p>
+<div class="d-flex">
+  <div class="table">
+    <div class="t-row t-head" nz-row>
+      <p nz-col [nzSpan]="2">Index</p>
+      <p nz-col [nzSpan]="6">Date</p>
+      <p nz-col [nzSpan]="10">Text</p>
+      <p nz-col [nzSpan]="2">Likes</p>
+      <p nz-col [nzSpan]="2">Comments</p>
+      <p nz-col [nzSpan]="2">Shares</p>
+    </div>
+    <div class="rows">
+      <div
+        *ngFor="let post of listofPosts; let i = index"
+        nz-row class="pointer t-row" [ngClass]="{'selected': selectedIndex === i, 't-body': selectedIndex !== i}"
+        (click)="selectPost(i)">
+        <p nz-col [nzSpan]="2">{{ i + 1 }}</p>
+        <p nz-col [nzSpan]="6">{{ post.date }}</p>
+        <p class="content" nz-col [nzSpan]="10">{{ post.content | truncate: 45 }}</p>
+        <p nz-col [nzSpan]="2">{{ post.likes }}</p>
+        <p nz-col [nzSpan]="2">{{ post.comments }}</p>
+        <p nz-col [nzSpan]="2">{{ post.shares }}</p>
+      </div>
+    </div>
   </div>
-  <div *ngFor="let post of listofPosts" nz-row class="pointer t-row t-body">
-    <p nz-col [nzSpan]="2">{{ post.id }}</p>
-    <p nz-col [nzSpan]="6">{{ post.date }}</p>
-    <p nz-col [nzSpan]="10">{{ post.preview }}</p>
-    <p nz-col [nzSpan]="2">{{ post.likes }}</p>
-    <p nz-col [nzSpan]="2">{{ post.comments }}</p>
-    <p nz-col [nzSpan]="2">{{ post.shares }}</p>
-  </div>
+  <app-post [post]="postDetails" (triggerRequest)="moveTo($event)"></app-post>
 </div>

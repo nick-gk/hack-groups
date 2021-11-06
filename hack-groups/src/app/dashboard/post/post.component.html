@@ -1,1 +1,43 @@
-<p>post works!</p>
+<div class="w-100 post-details d-flex justify-center">
+  <div *ngIf="post?.id; else noPost" class="d-flex justify-center flex-column align-center w-100">
+    <h3 class="title">Post details</h3>
+    <div class="card-container justify-center d-flex align-center flex-column">
+      <div class="card d-flex justify-center flex-column align-center">
+        <div class="badge-container d-flex justify-end w-100">
+          <div class="badge d-flex align-center justify-center">Reactions: {{post.reactions}}</div>
+        </div>
+        <p class="content">{{post.content}}</p>
+        <img class="image" src="{{post.mediaFile}}">
+        <div class="d-flex icons card-bottom w-100">
+          <div class="d-flex align-center">
+            <i nz-icon nzType="like" nzTheme="fill"></i>
+            <p>{{post.likes}}</p>
+          </div>
+          <div class="d-flex align-center">
+            <i nz-icon nzType="message" nzTheme="fill"></i>
+            <p>{{post.comments}}</p>
+          </div>
+          <div class="d-flex align-center">
+            <i nz-icon nzType="share-alt" nzTheme="outline"></i>
+            <p>{{post.shares}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu d-flex justify-around w-100">
+        <button nz-button nzType="primary" (click)="move()">
+          Previous post
+        </button>
+        <button nz-button nzType="primary" (click)="move(true)">
+          Next post
+        </button>
+        <button nz-button nzType="primary" (click)="manage()">
+          Manage post
+        </button>
+      </div>
+    </div>
+  </div>
+  <ng-template #noPost>
+
+  </ng-template>
+</div>
