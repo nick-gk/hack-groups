@@ -9,6 +9,7 @@ import { PostComponent } from './post/post.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzTableModule } from 'ng-zorro-antd/table';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { NzFormModule } from 'ng-zorro-antd/form';
     ReactiveFormsModule,
     NzInputModule,
     NzFormModule,
-    SharedModule
+    SharedModule,
+    NzTableModule
   ]
 })
 export class DashboardModule { }
