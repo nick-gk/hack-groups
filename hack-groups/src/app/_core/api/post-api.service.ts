@@ -4,7 +4,7 @@ import { ApiService } from '../api/api.service';
 @Injectable({
   providedIn: 'root',
 })
-export class HomeService {
+export class PostApiService {
   private readonly resourceUrl: string = '/api';
 
   constructor(
@@ -12,8 +12,8 @@ export class HomeService {
   ) {
   }
 
-  getWelcomePopup() {
-    return this.apiService.get(`${this.resourceUrl}/get-welcome-popup`);
+  getTablePosts() {
+    return this.apiService.get(`${this.resourceUrl}/table-posts`);
   }
 
 }
