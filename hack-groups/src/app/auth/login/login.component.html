@@ -1,7 +1,7 @@
 <div class="d-flex-col align-center h-scr">
   <h3 class="title">Log in to Social Media Analyzer</h3>
 
-  <form nz-form [formGroup]="loginForm" class="d-flex-col justify-center align-center form">
+  <form nz-form [formGroup]="loginForm" class="d-flex-col justify-center align-center auth-form">
     <nz-form-item>
       <nz-form-label [nzSpan]="6" nzFor="email">E-mail</nz-form-label>
       <nz-form-control [nzSpan]="14">
@@ -14,6 +14,7 @@
         <input nz-input name="password" type="password" id="password">
       </nz-form-control>
     </nz-form-item>
-    <button>Log in</button>
+    <button nz-button nzType="primary" (click)="login()">Log in</button>
+    <p>Don't have an account? <a [routerLink]="'../' + [urls.REGISTER]">register here</a></p>
   </form>
 </div>
