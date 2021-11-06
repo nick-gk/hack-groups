@@ -10,6 +10,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { NzTableModule } from 'ng-zorro-antd/table';
     CommonModule,
     ReactiveFormsModule,
     NzInputModule,
+    NzCardModule,
     NzFormModule,
+    ChartsModule,
     SharedModule,
     NzTableModule
   ]

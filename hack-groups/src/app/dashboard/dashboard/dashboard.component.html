@@ -1,8 +1,59 @@
 <nz-layout class="layout">
-  <nz-content>
-    <div class="inner-content h-100 d-flex">
-      <app-posts></app-posts>
-      <app-post></app-post>
+  <nz-content *ngIf="page">
+    <div class="inner-content h-100">
+      <div class="d-flex align-items-baseline">
+        <h2 nz-typography>{{ page.name }}</h2>
+        <p class="ml-4">Resume for the last week</p>
+      </div>
+      <div nz-row [nzGutter]="6">
+        <div nz-col [nzSpan]="6">
+          <nz-card nzTitle="Interactions">
+            <p><b>{{ page.interactions }} Interactions</b></p>
+            <p># of people that interacted with the posts</p>
+          </nz-card>
+        </div>
+        <div nz-col [nzSpan]="6">
+          <nz-card nzTitle="Page Actions">
+            <p>{{ page.pageActions }} Actions</p>
+          </nz-card>
+        </div>
+        <div nz-col [nzSpan]="6">
+          <nz-card nzTitle="New Likes">
+            <p>{{ page.newLikes }} New Likes</p>
+          </nz-card>
+        </div>
+        <div nz-col [nzSpan]="6">
+          <nz-card nzTitle="New followers">
+            <p>{{ page.newFollowers }} New Followers</p>
+          </nz-card>
+        </div>
+      </div>
+
+      <div class="mt-4" nz-row [nzGutter]="6">
+        <div nz-col [nzSpan]="6">
+          <nz-card nzTitle="New Views">
+            <p>{{ page.pageViews }} Views</p>
+          </nz-card>
+        </div>
+        <div nz-col [nzSpan]="6">
+          <nz-card nzTitle="New Impact">
+            <p>{{ page.impact }} Impact</p>
+          </nz-card>
+        </div>
+      </div>
+
+      <div class="mt-5" nz-row [nzGutter]="24">
+        <div nz-col [nzSpan]="24" class="text-center">
+          <h3 nz-typography>Posts Interactions (last 10 weeks)</h3>
+          <canvas baseChart width="700" height="175"
+            [datasets]="lineChartData"
+            [chartType]="'line'"
+            [labels]="lineChartLabels"
+            [colors]="lineChartColors"
+            [options]="lineChartOptions"
+          ></canvas>
+        </div>
+      </div>
     </div>
   </nz-content>
 </nz-layout>

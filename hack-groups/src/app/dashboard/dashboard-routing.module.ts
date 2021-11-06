@@ -13,8 +13,8 @@ const routes: Routes = [
     component: DashboardComponent
   },
   {
-    path: Urls.POST,
-    component: PostComponent
+    path: `${Urls.POST}/:id`,
+    component: AddNewPostComponent
   },
   {
     path: Urls.POSTS,

@@ -6,7 +6,7 @@ import { ApiService } from '../api/api.service';
   providedIn: 'root',
 })
 export class HomeService {
-  private readonly resourceUrl: string = '/api';
+  private readonly resourceUrl: string = 'api';
 
   constructor(
     private apiService: ApiService
@@ -14,7 +14,11 @@ export class HomeService {
   }
 
   postAnalyzePost(body: any): Observable<any> {
-    return this.apiService.get(`${this.resourceUrl}/data-analysis/analyze`, body);
+    return this.apiService.post(`${this.resourceUrl}/data-analysis/analyze`, body);
+  }
+
+  getMyPage(): Observable<any> {
+    return this.apiService.get(`${this.resourceUrl}/competitors/my-page`);
   }
 
 }
