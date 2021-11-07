@@ -29,4 +29,8 @@ export class PostApiService {
     return this.apiService.get(`${this.resourceUrl}/facebook/posts/by-id/${uuid}`);
   }
 
+  getMyStatus(): Observable<any> {
+    return this.apiService.get(`${this.resourceUrl}/competitors/my-status`);
+  }
+
 }

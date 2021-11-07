@@ -78,7 +78,14 @@ export class AddNewPostComponent implements OnInit {
 
   post(): void {
     console.log(this.postForm);
-    
+    // comments 0.15
+    // likes 0.05
+    // reactions 0.1
+    // shares 0.2
+    // 100.000
+    // 20
+    // 20 * 5000 / 100000
+
   }
 
 }

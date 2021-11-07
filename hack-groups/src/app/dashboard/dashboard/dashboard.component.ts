@@ -11,6 +11,9 @@ import { PageEntity } from 'src/app/_core/models/Page';
 })
 export class DashboardComponent implements OnInit {
   page: PageEntity;
+  loaded = false;
+  status = [];
+
   lineChartData: ChartDataSets[] = [
     { data: [50, 100, 75, 30, 66, 58, 99, 120, 9, 211], label: 'Likes', fill: false },
     { data: [30, 120, 95, 60, 30, 78, 103, 73, 35, 140], label: 'Shares', fill: false },
@@ -48,7 +51,32 @@ export class DashboardComponent implements OnInit {
       this.page.impact = 2778;
       this.page.interactions = 190;
       this.page.newFollowers = 345;
-      console.log(this.page);
+      this.getMyStatus();
+    });
+  }
+
+  getMyStatus(): void {
+    this.apiService.getMyStatus().subscribe(res => {
+      console.log(res);
+      Object.keys(res).forEach(key => this.status.push(res[key]));
+      this.status = Object.values(res).slice(0, 10);
+      this.lineChartData.forEach((data, i) => {
+        this.status.forEach((item, index) => {
+          if (data.label === 'Likes') {
+            data.data[index] = item.likes;
+          }
+          if (data.label === 'Shares') {
+            data.data[index] = item.shares;
+          }
+          if (data.label === 'Reactions') {
+            data.data[index] = item.reactions;
+          }
+          if (data.label === 'comments') {
+            data.data[index] = item.comments;
+          }
+        });
+      });
+      this.loaded = true;
     });
   }
 

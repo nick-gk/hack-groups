@@ -1,5 +1,5 @@
 <div class="w-100 post-details d-flex justify-center">
-  <div *ngIf="post?.id; else noPost" class="d-flex justify-around flex-column align-center w-100">
+  <div *ngIf="post?.content; else noPost" class="d-flex justify-around flex-column align-center w-100">
     <h3 class="details-title" *ngIf="!preview">Post details</h3>
     <div class="card-container justify-center d-flex align-center flex-column w-100">
       <div class="top-menu d-flex justify-between w-100" *ngIf="!preview">
