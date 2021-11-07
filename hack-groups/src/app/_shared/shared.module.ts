@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { TruncateCharactersPipe } from './pipes/truncate.pipe';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzProgressModule } from 'ng-zorro-antd/progress';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
     NzLayoutModule,
     NzButtonModule,
     NzGridModule,
-    NzIconModule
+    NzIconModule,
+    NzProgressModule
   ],
   exports: [
     AppLoaderComponent,
@@ -39,7 +41,8 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
     NzButtonModule,
     NzGridModule,
     TruncateCharactersPipe,
-    NzIconModule
+    NzIconModule,
+    NzProgressModule
   ]
 })
 export class SharedModule { }
