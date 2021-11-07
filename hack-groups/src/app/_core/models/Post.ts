@@ -19,6 +19,7 @@ export interface PostDetails {
   mediaFile?: string;
   mediaType: string;
   url: string;
+  score: number;
   reactions: number;
   competitorId: string;
   keyWords: string;

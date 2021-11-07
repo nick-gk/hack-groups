@@ -21,6 +21,9 @@ export class AddNewPostComponent implements OnInit {
   competition: string[];
   id: string;
   displayPostBtn: boolean = false;
+  personalRelevanceScore: number;
+  industryRelevanceScore: number;
+  allCompetitorsKeyWords: string[] = [];
 
   // prettier-ignore
   constructor(
@@ -87,11 +90,30 @@ export class AddNewPostComponent implements OnInit {
         if (res.competitors[1]) {
           this.competitorPosts.push(res.competitors[1].posts[0]);
         }
+        let score = 0;
         this.competitorPosts.forEach(post => {
-          this.recommendedKeyWords.push(post.keyWords.split(',')[0]);
+          this.recommendedKeyWords.push(...post.keyWords.split(',').slice(0, 2));
+          score += post.score;
         });
-        console.log(this.competitorPosts);
-        console.log(this.recommendedKeyWords);
+        this.industryRelevanceScore = score * 9;
+        // const somePosts = res.competitors[0].posts.slice(0, 10);
+        // if (res.competitors[1]) {
+        //   somePosts.push(...res.competitors[1].posts.slice(0, 10));
+        // }
+        // somePosts.forEach((post) => {
+        //   this.allCompetitorsKeyWords.push(...post.keyWords.split(','));
+        // });
+        // console.log(this.allCompetitorsKeyWords);
+        // let count = 0;
+        // this.allCompetitorsKeyWords.forEach((keyword: string) => {
+        //   this.ownKeywords.forEach((ownKeyWord) => {
+        //     if (keyword == ownKeyWord) {
+        //       ++count;
+        //     }
+        //   });
+        // });
+        // console.log(count);
+        // console.log(this.ownKeywords);
         this.analysis = res;
         this.competition = this.analysis.competitors.map(competitor => competitor.competitor.name);
       }
