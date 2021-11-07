@@ -20,7 +20,7 @@ export class AddNewPostComponent implements OnInit {
   analysis: PostAnalysis;
   competition: string[];
   id: string;
-  previewVisible = false;
+  displayPostBtn: boolean = false;
 
   // prettier-ignore
   constructor(
@@ -35,6 +35,7 @@ export class AddNewPostComponent implements OnInit {
     if (this.id) {
       this.getPostData();
     }
+    this.displayPost();
   }
 
   generateForm(): void {
@@ -97,10 +98,6 @@ export class AddNewPostComponent implements OnInit {
     });
   }
 
-  preview(): void {
-    this.previewVisible = !this.previewVisible;
-  }
-
   post(): void {
     console.log(this.postForm);
     // comments 0.15
@@ -112,6 +109,12 @@ export class AddNewPostComponent implements OnInit {
     // 20 * 5000 / 100000
     // totalReactionsCount = comments + likes + reactions + shares
     // score = (comments / totalReactionsCount * 0.15) + (likes / totalReactionsCount * 0.05) + (reactions / totalReactionsCount * 0.1) + (shares / totalReactionsCount * 0.2) + (totalReactionsCount * 5000 / competitorFollowers)
+  }
+
+  displayPost(): void {
+    this.postForm.get('content').valueChanges.subscribe((val) => {
+      this.displayPostBtn =  !!val.length;
+    })
   }
 
 }

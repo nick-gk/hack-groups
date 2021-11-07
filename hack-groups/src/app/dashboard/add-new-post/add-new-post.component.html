@@ -1,77 +1,55 @@
-<nz-layout class="layout h-scr">
-   <h3 class="title text-center">{{ id ? 'Manage Post' : 'Add New Post' }}</h3>
-   <div nz-row [nzGutter]="8">
-      <div nz-col [nzSpan]="8">
-         <form nz-form [formGroup]="postForm" (ngSubmit)="post()" class="mt-5 align-self-center">
-            <nz-form-item>
-               <nz-form-label [nzSpan]="6" nzFor="content">Content</nz-form-label>
-               <nz-form-control [nzSpan]="14" nzErrorTip="Content is required">
-                  <textarea formControlName="content" rows="3" nz-input name="content" id="content" placeholder="Write something" nzAutosize></textarea>
-               </nz-form-control>
-            </nz-form-item>
-            <nz-form-item>
-               <nz-form-label [nzSpan]="6" nzFor="mediaFile">Media File</nz-form-label>
-               <nz-form-control [nzSpan]="14" nzErrorTip="Url is invalid">
-                  <input formControlName="mediaFile" nz-input name="mediaFile" type="text" id="mediaFile" placeholder="Url to Media">
-               </nz-form-control>
-            </nz-form-item>
-            <nz-form-item>
-               <nz-form-label [nzSpan]="6" nzFor="likes">Likes</nz-form-label>
-               <nz-form-control [nzSpan]="14">
-                  <input formControlName="likes" nz-input name="likes" type="number" id="likes" placeholder="# of likes">
-               </nz-form-control>
-            </nz-form-item>
-            <nz-form-item>
-               <nz-form-label [nzSpan]="6" nzFor="reactions">Reactions</nz-form-label>
-               <nz-form-control [nzSpan]="14">
-                  <input formControlName="reactions" nz-input name="reactions" type="number" id="reactions" placeholder="# of Reactions">
-               </nz-form-control>
-            </nz-form-item>
-            <nz-form-item>
-               <nz-form-label [nzSpan]="6" nzFor="shares">Shares</nz-form-label>
-               <nz-form-control [nzSpan]="14">
-                  <input formControlName="shares" nz-input name="shares" type="number" id="shares" placeholder="# of Shares">
-               </nz-form-control>
-            </nz-form-item>
-            <nz-form-item>
-               <nz-form-label [nzSpan]="6" nzFor="comments">Comments</nz-form-label>
-               <nz-form-control [nzSpan]="14">
-                  <input formControlName="comments" nz-input name="comments" type="number" id="comments" placeholder="# of Comments">
-               </nz-form-control>
-            </nz-form-item>
-            <div class="d-flex justify-content-center">
-               <button nz-button nzType="primary" class="mr-3" (click)="analyze()">Analyze</button>
-               <button nz-button nzType="primary" class="mr-3" (click)="preview()">Preview</button>
-               <button nz-button nzType="primary">Post</button>
-            </div>
-         </form>
+<<<<<<< HEAD
+
+  <div nz-row [nzGutter]="8">
+    <div nz-col [nzSpan]="8" class="d-flex justify-center align-center flex-column w-85" >
+      <h3 nz-typography class="heading">Here you can manage your post details</h3>
+      <form nz-form [formGroup]="postForm" (ngSubmit)="post()" class="mt-5 align-self-center">
+        <nz-form-item class="d-flex justify-center align-center">
+          <nz-form-label class="d-flex justify-center align-center" [nzSpan]="24" nzFor="content">1. Write the text for your post</nz-form-label>
+          <nz-form-control [nzSpan]="14" nzErrorTip="Content is required">
+            <textarea formControlName="content" rows="3" nz-input name="content" id="content"
+              placeholder="Write something" nzAutosize></textarea>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item class="d-flex align-center justify-center">
+          <nz-form-label class="d-flex justify-center align-center" [nzSpan]="24" nzFor="mediaFile">2. Add an image</nz-form-label>
+          <nz-form-control [nzSpan]="14" nzErrorTip="Url is invalid">
+            <input formControlName="mediaFile" nz-input name="mediaFile" type="text" id="mediaFile"
+              placeholder="Url to Media">
+          </nz-form-control>
+        </nz-form-item>
+        <div class="d-flex justify-content-center">
+          <button nz-button nzType="primary" class="mr-3 d-blue" (click)="analyze()">Analyze</button>
+        </div>
+      </form>
+    </div>
+    <div nz-col [nzSpan]="8" class="d-flex justify-center align-center flex-column post-preview">
+      <h3 nz-typography class="heading">Here you can manage your post details</h3>
+      <app-post [post]="postForm.getRawValue()" [preview]="true"></app-post>
+    </div>
+    <div nz-col [nzSpan]="8">
+      <h4 class="title text-center">Recommandations</h4>
+      <div *ngIf="analysis">
+         <nz-card nzTitle="Competitors you might wanna study">
+            <b>{{ competition.join(', ') }}</b>
+            <p>Companies that seems to use the same keywords as you</p>
+         </nz-card>
+         <nz-card class="mt-4" nzTitle="The score of the post compared to the keywords used in your industry">
+            <b>score is 5</b>
+            <p>1 - 10</p>
+         </nz-card>
+         <nz-card class="mt-4" nzTitle="The score of the post compared to the keywords used previously by you">
+            <b>score is 4</b>
+            <p>1 - 10</p>
+         </nz-card>
+         <nz-card class="mt-4" nzTitle="Keywords you might wanna consider">
+            <b>{{ recommendedKeyWords.join(', ') }}</b>
+            <p>Those keywords has shown higher interaction chances in your industry</p>
+         </nz-card>
       </div>
-      <div nz-col [nzSpan]="8">
-         <app-post [post]="postForm.getRawValue()" [preview]="true"></app-post>
-      </div>
-      <div nz-col [nzSpan]="8">
-         <h4 class="title text-center">Recommandations</h4>
-         <div *ngIf="analysis">
-            <nz-card nzTitle="Competitors you might wanna study">
-               <b>{{ competition.join(', ') }}</b>
-               <p>Companies that seems to use the same keywords as you</p>
-            </nz-card>
-            <nz-card class="mt-4" nzTitle="The score of the post compared to the keywords used in your industry">
-               <b>score is 5</b>
-               <p>1 - 10</p>
-            </nz-card>
-            <nz-card class="mt-4" nzTitle="The score of the post compared to the keywords used previously by you">
-               <b>score is 4</b>
-               <p>1 - 10</p>
-            </nz-card>
-            <nz-card class="mt-4" nzTitle="Keywords you might wanna consider">
-               <b>{{ recommendedKeyWords.join(', ') }}</b>
-               <p>Those keywords has shown higher interaction chances in your industry</p>
-            </nz-card>
-         </div>
-         <div *ngIf="!analysis">
-            We couldnt provide any recommandation for the content you provided.
-         </div>
+      <div *ngIf="!analysis">
+         We couldnt provide any recommandation for the content you provided.
       </div>
    </div>
-</nz-layout>
+  </div>
+

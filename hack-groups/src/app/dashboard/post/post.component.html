@@ -1,7 +1,7 @@
-<div class="w-100 post-details d-flex justify-center">
-  <div *ngIf="post?.content; else noPost" class="d-flex justify-around flex-column align-center w-100">
+<div class=" d-flex justify-center" [ngClass]="{'w-100 post-details ': !preview}">
+  <div *ngIf="post?.content; else noPost" class="d-flex justify-around flex-column align-center" [ngClass]="{'w-100': !preview}">
     <h3 class="details-title" *ngIf="!preview">Post details</h3>
-    <div class="card-container justify-center d-flex align-center flex-column w-100">
+    <div class="card-container justify-center d-flex align-center flex-column" [ngClass]="{'w-100': !preview}">
       <div class="top-menu d-flex justify-between w-100" *ngIf="!preview">
         <a class="d-blue button d-flex align-center justify-center" nz-button nzType="primary" [href]="post.url"
           target="_blank">
