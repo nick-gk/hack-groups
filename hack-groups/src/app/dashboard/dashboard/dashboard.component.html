@@ -3,25 +3,22 @@
     <div class="inner-content h-100">
       <div class="d-flex align-items-baseline">
         <h2 nz-typography>{{ page.name }}</h2>
-        <p class="ml-4">Resume for the last week</p>
+        <h3 nz-typography class="ml-4 headline">Here are the updates of last week</h3>
       </div>
       <div nz-row [nzGutter]="8">
         <div nz-col [nzSpan]="8">
           <nz-card nzTitle="Interactions">
-            <b>{{ page.interactions }} Interactions</b>
-            <p># of people that interacted with the posts</p>
+            <b>{{ page.interactions }} Interactions</b> - <span># of people that interacted with the posts</span>
           </nz-card>
         </div>
         <div nz-col [nzSpan]="8">
           <nz-card nzTitle="Page Actions">
-            <b>{{ page.pageActions }} Actions</b>
-            <p># of actions resulting from ads</p>
+            <b>{{ page.pageActions }} Actions</b> - <span># of actions performed by visitors</span>
           </nz-card>
         </div>
         <div nz-col [nzSpan]="8">
           <nz-card nzTitle="New Likes">
-            <b>{{ page.newLikes }} New Likes</b>
-            <p># of new page likes for the current week</p>
+            <b>{{ page.newLikes }} New Likes</b> - <span># of new page likes from the current week</span>
           </nz-card>
         </div>
       </div>
@@ -29,27 +26,26 @@
       <div class="mt-4" nz-row [nzGutter]="8">
         <div nz-col [nzSpan]="8">
           <nz-card nzTitle="New followers">
-            <b>{{ page.newFollowers }} New Followers</b>
-            <p># of new page followers for the current week</p>
+            <b>{{ page.newFollowers }} New Followers</b> - <span># of new followers for the current week</span>
+            <p></p>
           </nz-card>
         </div>
         <div nz-col [nzSpan]="8">
           <nz-card nzTitle="New Views">
-            <b>{{ page.pageViews }} Views</b>
-            <p># of new unique page view</p>
+            <b>{{ page.pageViews }} Views</b> - <span># of new unique page views</span>
+            <p></p>
           </nz-card>
         </div>
         <div nz-col [nzSpan]="8">
           <nz-card nzTitle="New Impact">
-            <b>{{ page.impact }} Impact</b>
-            <p># of people reached</p>
+            <b>{{ page.impact }} Impact</b> - <span># of people reached</span>
           </nz-card>
         </div>
       </div>
 
-      <div class="my-5" nz-row [nzGutter]="24">
-        <div nz-col [nzSpan]="24" class="text-center">
-          <h3 nz-typography>Posts Interactions (last 10 weeks)</h3>
+      <h3 nz-typography class="diagram-title"><b> Posts Interactions (last 10 weeks)</b></h3>
+      <div class="my-1" nz-row [nzGutter]="24">
+        <div nz-col [nzSpan]="24">
           <canvas baseChart width="700" height="175"
             [datasets]="lineChartData"
             [chartType]="'line'"

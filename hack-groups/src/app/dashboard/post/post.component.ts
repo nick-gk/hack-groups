@@ -17,7 +17,6 @@ export class PostComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.post);
   }
 
   move(next: boolean = false) {

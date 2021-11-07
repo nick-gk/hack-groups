@@ -15,7 +15,7 @@ export class AddNewPostComponent implements OnInit {
   postForm: FormGroup;
   postDetails: PostDetails;
   id: string;
-  previewVisible = false;
+  displayPostBtn: boolean = false;
 
   // prettier-ignore
   constructor(
@@ -30,6 +30,7 @@ export class AddNewPostComponent implements OnInit {
     if (this.id) {
       this.getPostData();
     }
+    this.displayPost();
   }
 
   generateForm(): void {
@@ -72,10 +73,6 @@ export class AddNewPostComponent implements OnInit {
     this.apiService.postAnalyzePost(payload).subscribe((res) => console.log(res));
   }
 
-  preview(): void {
-    this.previewVisible = !this.previewVisible;
-  }
-
   post(): void {
     console.log(this.postForm);
     // comments 0.15
@@ -86,6 +83,12 @@ export class AddNewPostComponent implements OnInit {
     // 20
     // 20 * 5000 / 100000
 
+  }
+
+  displayPost(): void {
+    this.postForm.get('content').valueChanges.subscribe((val) => {
+      this.displayPostBtn =  !!val.length;
+    })
   }
 
 }
