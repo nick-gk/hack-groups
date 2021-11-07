@@ -80,6 +80,7 @@ export class AddNewPostComponent implements OnInit {
     };
     this.apiService.postAnalyzePost(payload).subscribe((res: PostAnalysis) => {
       if (res.competitors.length) {
+        this.analysis = res;
         this.ownKeywords = res.postKeywords;
         if (res.competitors[0].competitor.name === 'Hootsuite') {
           res.competitors.shift();
@@ -114,7 +115,7 @@ export class AddNewPostComponent implements OnInit {
         // });
         // console.log(count);
         // console.log(this.ownKeywords);
-        this.analysis = res;
+
         this.competition = this.analysis.competitors.map(competitor => competitor.competitor.name);
       }
     });
