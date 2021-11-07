@@ -50,7 +50,28 @@
          <app-post [post]="postForm.getRawValue()" [preview]="true"></app-post>
       </div>
       <div nz-col [nzSpan]="8">
-         Metrics
+         <h4 class="title text-center">Recommandations</h4>
+         <div *ngIf="analysis">
+            <nz-card nzTitle="Competitors you might wanna study">
+               <b>{{ competition.join(', ') }}</b>
+               <p>Companies that seems to use the same keywords as you</p>
+            </nz-card>
+            <nz-card class="mt-4" nzTitle="The score of the post compared to the keywords used in your industry">
+               <b>score is 5</b>
+               <p>1 - 10</p>
+            </nz-card>
+            <nz-card class="mt-4" nzTitle="The score of the post compared to the keywords used previously by you">
+               <b>score is 4</b>
+               <p>1 - 10</p>
+            </nz-card>
+            <nz-card class="mt-4" nzTitle="Keywords you might wanna consider">
+               <b>{{ recommendedKeyWords.join(', ') }}</b>
+               <p>Those keywords has shown higher interaction chances in your industry</p>
+            </nz-card>
+         </div>
+         <div *ngIf="!analysis">
+            We couldnt provide any recommandation for the content you provided.
+         </div>
       </div>
    </div>
 </nz-layout>

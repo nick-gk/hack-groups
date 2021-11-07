@@ -1,3 +1,5 @@
+import { PageEntity } from "./Page";
+
 export interface TablePost {
   id: string;
   date: Date;
@@ -19,4 +21,19 @@ export interface PostDetails {
   url: string;
   reactions: number;
   competitorId: string;
+  keyWords: string;
+}
+
+export interface PostAnalysis {
+  competitors: CompetitorMatchInfo[];
+  ownMatchingPostcount: number;
+  score: number;
+  postKeywords: string[];
+}
+
+export interface CompetitorMatchInfo {
+  competitor: PageEntity;
+  competitorScore: number;
+  matchingPostsCount: number;
+  posts: PostDetails[];
 }

@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PostApiService } from 'src/app/_core/api/post-api.service';
 import { MediaType } from 'src/app/_core/constants/MediaType';
 import { CustomValidators } from 'src/app/_core/helpers/CustomValidators';
-import { PostDetails } from 'src/app/_core/models/Post';
+import { PostAnalysis, PostDetails } from 'src/app/_core/models/Post';
 
 @Component({
   selector: 'app-add-new-post',
@@ -14,6 +14,11 @@ import { PostDetails } from 'src/app/_core/models/Post';
 export class AddNewPostComponent implements OnInit {
   postForm: FormGroup;
   postDetails: PostDetails;
+  competitorPosts: PostDetails[] = [];
+  ownKeywords: string[];
+  recommendedKeyWords: string[] = [];
+  analysis: PostAnalysis;
+  competition: string[];
   id: string;
   previewVisible = false;
 
@@ -69,7 +74,27 @@ export class AddNewPostComponent implements OnInit {
       content: this.postForm.getRawValue().content,
       photo: this.postForm.getRawValue().mediaFile
     };
-    this.apiService.postAnalyzePost(payload).subscribe((res) => console.log(res));
+    this.apiService.postAnalyzePost(payload).subscribe((res: PostAnalysis) => {
+      if (res.competitors.length) {
+        this.ownKeywords = res.postKeywords;
+        if (res.competitors[0].competitor.name === 'Hootsuite') {
+          res.competitors.shift();
+        }
+        if (res.competitors[0]) {
+          this.competitorPosts.push(...res.competitors[0].posts.slice(0, 2));
+        }
+        if (res.competitors[1]) {
+          this.competitorPosts.push(res.competitors[1].posts[0]);
+        }
+        this.competitorPosts.forEach(post => {
+          this.recommendedKeyWords.push(post.keyWords.split(',')[0]);
+        });
+        console.log(this.competitorPosts);
+        console.log(this.recommendedKeyWords);
+        this.analysis = res;
+        this.competition = this.analysis.competitors.map(competitor => competitor.competitor.name);
+      }
+    });
   }
 
   preview(): void {
@@ -85,7 +110,8 @@ export class AddNewPostComponent implements OnInit {
     // 100.000
     // 20
     // 20 * 5000 / 100000
-
+    // totalReactionsCount = comments + likes + reactions + shares
+    // score = (comments / totalReactionsCount * 0.15) + (likes / totalReactionsCount * 0.05) + (reactions / totalReactionsCount * 0.1) + (shares / totalReactionsCount * 0.2) + (totalReactionsCount * 5000 / competitorFollowers)
   }
 
 }
