@@ -18,9 +18,55 @@ form {
   font-weight: bold;
   font-size: 18px;
   color: #001529;
+  position: fixed;
 }
 
 .w-85 {
   height: 88vh;
 }
 
+.t1 {
+  top: 15%;
+  left: 9%;
+}
+
+.t2 {
+  top: 15%;
+  left: 42%;
+}
+
+.t3 {
+  top: 15%;
+  left: 72%;
+}
+
+.mt-55 {
+  margin-top: 150px;
+}
+
+::ng-deep .ant-card-body {
+  padding: 15px !important;
+}
+
+nz-card {
+  width: 88%;
+}
+
+::ng-deep .ant-progress-bg {
+  background-color: #6d1a36;
+}
+
+.badge {
+  font-size: 14px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  color: white;
+  font-weight: normal;
+  margin-right: 10px;
+  margin-bottom: 2px;
+}
+
+.divider {
+  width: 1px;
+  height: 80vh;
+}
